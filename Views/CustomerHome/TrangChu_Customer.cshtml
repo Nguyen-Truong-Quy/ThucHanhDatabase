@@ -1,0 +1,49 @@
+﻿@model DatabaseThucHanh.Models.ViewModel.HomeProductVM
+
+@{
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shoes</title>
+    <link rel="stylesheet" href="~/Content/Product.css">
+    <link rel="stylesheet" href="~/Content/ThanhICON.css">
+</head>
+<body>
+    <!-- PHẦN BANNER -->
+    <section class="container-fluid banner">
+        <div class="banner-container">
+            <h2>Chào mừng đến trang web E-commerce</h2>
+            <p>Mua sắm trực tuyến với hàng ngàn sản phẩm đa dạng và chất lượng</p>
+            <a href="#" class="btnBanner">Bắt đầu mua sắm</a>
+        </div>
+    </section>
+
+    <!-- PHẦN TÌM KIẾM SẢN PHẨM -->
+    <section class="container-fluid searchProd">
+        <h2>Tìm kiếm sản phẩm</h2>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <div class="form-group search-container">
+                @Html.TextBoxFor(m => m.SearchTerm, new
+                {
+                    @class = "search-input",
+                    placeholder = "Nhập tên, mô tả hoặc chủng loại sản phẩm"
+                })
+                <button type="submit" class="search-button">Tìm kiếm</button>
+            </div>
+        }
+    </section>
+
+    <!-- PHẦN SẢN PHẨM NỔI BẬT -->
+    @Html.Partial("_PVFeatureProduct", Model)
+
+    <!-- PHẦN SẢN PHẨM MỚI -->
+    @Html.Partial("_PVNewProduct", Model)
+</body>
+</html>

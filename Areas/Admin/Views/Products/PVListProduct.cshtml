@@ -1,0 +1,153 @@
+﻿@model DatabaseThucHanh.Models.ViewModel.ProductSearchVM
+@using PagedList.Mvc
+<head>
+    <link href="~/Areas/Admin/Content/PVlistProduct.css" rel="stylesheet" />
+</head>
+
+@if (Model.Products != null && Model.Products.Any())
+{
+    <h2 class="bg-dark text-white text-center p-2">DANH SÁCH SẢN PHẨM</h2>
+
+    <div class="btn-create">
+        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-success" })
+    </div>
+
+    <table class="table table-striped table-responsive">
+        <thead>
+            <tr class="bg-success text-white">
+                <th class="col-md-2">Hình ảnh</th>
+                <th class="col-md-3">Tên sản phẩm</th>
+                <th class="col-md-1">Đơn giá</th>
+                <th class="col-md-2">Danh mục</th>
+                <th class="col-md-4">Thao tác</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td><img src="@Html.DisplayFor(modelItem => product.ProductImage)" alt="Hình ảnh sản phẩm" /></td>
+                    <td>@Html.DisplayFor(modelItem => product.ProductName)</td>
+                    <td>@Html.DisplayFor(modelItem => product.ProductPrice)</td>
+                    <td>@Html.DisplayFor(modelItem => product.Category.CategoryName)</td>
+                    <td>
+                        <div class="btn-group">
+                            @Html.ActionLink("Cập nhật", "Edit", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm" })
+                            @Html.ActionLink("Chi tiết", "Details", new { id = product.ProductID }, new { @class = "btn btn-info btn-sm" })
+                            @Html.ActionLink("Xóa", "Delete", new { id = product.ProductID }, new { @class = "btn btn-danger btn-sm" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- Hiển thị phân trang -->
+    <<div class="pagination-container">
+    @Html.PagedListPager(
+        Model.Products, // Dữ liệu phân trang (IPagedList)
+        page => Url.Action("Index", new 
+        {
+            page, // Tham số trang hiện tại
+            searchTerm = Model.SearchTerm, // Từ khóa tìm kiếm
+            MinPrice = Model.MinPrice, // Giá tối thiểu
+            maxPrice = Model.MaxPrice, // Giá tối đa
+            sortOrder = Model.SortOrder // Sắp xếp
+        }),
+        new PagedListRenderOptions { 
+            DisplayLinkToFirstPage = PagedListDisplayMode.Always, 
+            DisplayLinkToLastPage = PagedListDisplayMode.Always, 
+            DisplayLinkToPreviousPage = PagedListDisplayMode.Always, 
+            DisplayLinkToNextPage = PagedListDisplayMode.Always, 
+            MaximumPageNumbersToDisplay = 10, 
+            LinkToIndividualPageFormat = "{0}",
+            EllipsesFormat = "..."
+        }
+    )
+</div>
+
+
+    <!-- CSS để thiết kế phân trang -->
+    <style>
+        .pagination-container .pagination {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+            .pagination-container .pagination li {
+                margin: 5px;
+            }
+
+                .pagination-container .pagination li a {
+                    padding: 5px 10px;
+                    text-decoration: none;
+                    background-color: #f1f1f1;
+                    border-radius: 4px;
+                }
+
+                    .pagination-container .pagination li a:hover {
+                        background-color: #ddd;
+                    }
+
+                .pagination-container .pagination li.active a {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+    </style>
+
+
+
+
+
+}
+else
+{
+    <div class="no-results">Không tìm được sản phẩm nào phù hợp</div>
+}
+@*<style type="text/css">
+        /* Style cho pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+            /* Style cho mỗi nút phân trang */
+            .pagination a {
+                display: block;
+                width: 35px;
+                height: 35px;
+                margin: 0 5px;
+                text-align: center;
+                line-height: 35px;
+                border: 2px solid #4CAF50; /* Đặt đường viền cho các ô */
+                border-radius: 5px; /* Tạo góc bo tròn */
+                color: #4CAF50;
+                font-weight: bold;
+                text-decoration: none;
+                background-color: white;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+                /* Style khi hover vào nút phân trang */
+                .pagination a:hover {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+            /* Style cho nút đang ở trang hiện tại */
+            .pagination .current {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            /* Style khi không có nút phân trang nào */
+            .pagination .disabled {
+                background-color: #f0f0f0;
+                color: #b5b5b5;
+                border: 2px solid #ddd;
+            }
+    </style>*@

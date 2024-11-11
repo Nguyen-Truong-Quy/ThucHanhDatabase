@@ -1,0 +1,167 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.Top-Header {
+    background-color: #0a3a70;
+    padding: 25px;
+    color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Logo {
+    display: flex;
+    align-items: center;
+    left: 20px;
+}
+
+    .Logo a {
+        color: white;
+        text-decoration: none;
+    }
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logo-vn {
+    font-size: 24px;
+    color: red;
+}
+
+.ThanhTimKiem {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    justify-content: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 12px 0 0 12px;
+    outline: none;
+    width: 100%;
+    border: none;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #fff;
+    color: #fff;
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #0d4a91;
+        color: #fff;
+    }
+
+.Menu-Top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+    /* Account section styling */
+    .Menu-Top .account {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column; /* Stack title and subtitle vertically */
+        align-items: center; /* Center align text */
+        gap: 3px;
+    }
+
+.account-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.account-subtitle {
+    font-size: 10px;
+    color: #f9f9f9;
+    margin: 0;
+}
+
+/* Store section (Cart) styling */
+.Menu-Top .store {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.header-bottom {
+    background-color: #0a3a70; /* Màu nền cho khối dưới */
+    padding: 10px; /* Đệm trên và dưới */
+}
+
+.MucLucGiay {
+    display: flex; /* Sử dụng flexbox */
+    justify-content: flex-start; /* Căn trái cho các mục giày */
+    list-style-type: none; /* Xóa dấu đầu dòng */
+    gap: 12px; /* Giảm khoảng cách giữa các mục */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding-left: 0; /* Đảm bảo không có padding bên trái */
+}
+
+    .MucLucGiay li {
+        display: inline; /* Làm cho nó giống 1 khối nhỏ có kích thước vừa */
+    }
+
+        /* Đặt margin-left: 0 cho mục Giày Nike để nó nằm sát bên trái */
+        .MucLucGiay li:first-child {
+            margin-left: 0; /* Không có khoảng cách bên trái cho mục đầu tiên */
+        }
+
+        /* Giảm khoảng cách giữa các mục giày */
+        .MucLucGiay li:not(:last-child) {
+            margin-right: 5px; /* Giảm khoảng cách giữa các mục giày */
+        }
+
+        .MucLucGiay li a {
+            color: white; /* Màu chữ cho liên kết */
+            text-decoration: none; /* Xóa gạch chân */
+            font-size: 16px; /* Kích thước chữ */
+            display: flex; /* Sử dụng flexbox cho nội dung của liên kết */
+            align-items: center; /* Căn giữa nội dung trong liên kết theo chiều dọc */
+        }
+
+.label {
+    font-size: 12px; /* Kích thước phông chữ cho nhãn */
+    font-weight: bold; /* Đặt phông chữ thành đậm */
+    padding: 3px 4px; /* Giảm padding để nhãn gần nhau hơn */
+    border-radius: 4px; /* Bo tròn các góc của nhãn */
+    margin-left: 3px; /* Giảm khoảng cách bên trái để tạo khoảng cách với các phần tử liền kề */
+    color: #fff; /* Màu chữ là trắng */
+}
+
+    .label.new {
+        background-color: #4caf50; /* Màu nền xanh lá cho nhãn "Mới" */
+    }
+
+    .label.sale {
+        background-color: #e53935; /* Màu nền đỏ cho nhãn "Giảm giá" */
+    }
+
+.icon-percent {
+    font-size: 18px; /* Kích thước phông chữ cho biểu tượng phần trăm */
+    color: #e53935; /* Màu cho biểu tượng là màu đỏ */
+}
+
+.icon-email,
+.icon-blog {
+    font-size: 18px; /* Kích thước phông chữ cho biểu tượng email và blog */
+    color: #fff; /* Màu cho biểu tượng là trắng */
+}

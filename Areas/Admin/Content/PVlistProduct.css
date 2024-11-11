@@ -1,0 +1,55 @@
+﻿img {
+    height: 150px;
+    max-width: 150px;
+    object-fit: cover;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Button alignment */
+.btn-create {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.no-results {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    color: #ff4d4d;
+}
+
+/* Alternating row colors */
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Light gray for odd rows */
+}
+
+.table-striped tbody tr:nth-child(even) {
+    background-color: white; /* White for even rows */
+}
+
+/* Header styling */
+.table thead th {
+    background-color: #6c757d; /* Gray header */
+    color: white;
+}
+
+.bg-success {
+    background-color: #28a745 !important; /* Màu xanh lá Bootstrap */
+}
